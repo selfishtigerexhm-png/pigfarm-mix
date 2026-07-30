@@ -5,8 +5,8 @@
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 40,
-    "smallWeight": 3.9,
+    "bigWeight": 160.0,
+    "smallWeight": 123.9 ,
     "lifespan": 3,
     "png": "./data/images/1.png"
   },

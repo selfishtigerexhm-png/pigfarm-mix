@@ -1,5 +1,4 @@
 [
- [
   {
     "pNo": 1,
     "name": "雜種豬(肉色)",
@@ -65,8 +64,7 @@
     "bigWeight": 153.2,
     "lifespan": 3,
     "png": "./data/images/6.png"
-  }
-],
+  },
   {
     "pNo": 7,
     "name": "伊比利亞豬/(橡子餵食)",

@@ -5,10 +5,10 @@
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 160.0,
-    "smallWeight": 123.9 ,
+    "bigWeight": 40,
+    "smallWeight": 3.9,
     "lifespan": 3,
-    "png": "./data/images/1.png"
+    "png": "./data/images/pig_1.png"
   },
   {
     "pNo": 2,
@@ -19,7 +19,7 @@
     "bigWeight": 40,
     "smallWeight": 3.9,
     "lifespan": 3,
-    "png": "./data/images/2.png"
+    "png": "./data/images/pig_2.png"
   },
   {
     "pNo": 3,
@@ -30,7 +30,7 @@
     "bigWeight": 40,
     "smallWeight": 3.9,
     "lifespan": 3,
-    "png": "./data/images/3.png"
+    "png": "./data/images/pig_3.png"
   },
   {
     "pNo": 4,
@@ -41,7 +41,7 @@
     "bigWeight": 40,
     "smallWeight": 3.9,
     "lifespan": 3,
-    "png": "./data/images/4.png"
+    "png": "./data/images/pig_4.png"
   },
   {
     "pNo": 5,
@@ -52,7 +52,7 @@
     "bigWeight": 40,
     "smallWeight": 3.9,
     "lifespan": 3,
-    "png": "./data/images/5.png"
+    "png": "./data/images/pig_5.png"
   },
   {
     "pNo": 6,
@@ -63,7 +63,7 @@
     "bigWeight": 33.2,
     "smallWeight": 4.4,
     "lifespan": 3,
-    "png": "./data/images/6.png"
+    "png": "./data/images/pig_6.png"
   },
   {
     "pNo": 7,
@@ -74,7 +74,7 @@
     "bigWeight": 80,
     "smallWeight": 55,
     "lifespan": 40,
-    "png": "./data/images/7.png"
+    "png": "./data/images/pig_7.png"
   },
   {
     "pNo": 8,
@@ -85,7 +85,7 @@
     "bigWeight": 42.4,
     "smallWeight": 14.2,
     "lifespan": 40,
-    "png": "./data/images/8.png"
+    "png": "./data/images/pig_8.png"
   },
   {
     "pNo": 9,
@@ -96,7 +96,7 @@
     "bigWeight": 45.3,
     "smallWeight": 19.6,
     "lifespan": 24,
-    "png": "./data/images/9.png"
+    "png": "./data/images/pig_9.png"
   },
   {
     "pNo": 10,
@@ -107,7 +107,7 @@
     "bigWeight": 40.6,
     "smallWeight": 5.7,
     "lifespan": 4,
-    "png": "./data/images/10.png"
+    "png": "./data/images/pig_10.png"
   },
   {
     "pNo": 11,
@@ -118,7 +118,7 @@
     "bigWeight": 48.4,
     "smallWeight": 4.8,
     "lifespan": 3,
-    "png": "./data/images/11.png"
+    "png": "./data/images/pig_11.png"
   },
   {
     "pNo": 12,
@@ -129,7 +129,7 @@
     "bigWeight": 19.6,
     "smallWeight": 5.7,
     "lifespan": 16,
-    "png": "./data/images/12.png"
+    "png": "./data/images/pig_12.png"
   },
   {
     "pNo": 13,
@@ -140,7 +140,7 @@
     "bigWeight": 31.6,
     "smallWeight": 8.4,
     "lifespan": 24,
-    "png": "./data/images/13.png"
+    "png": "./data/images/pig_13.png"
   },
   {
     "pNo": 14,
@@ -151,7 +151,7 @@
     "bigWeight": 40.6,
     "smallWeight": 3.9,
     "lifespan": 4,
-    "png": "./data/images/14.png"
+    "png": "./data/images/pig_14.png"
   },
   {
     "pNo": 15,
@@ -162,7 +162,7 @@
     "bigWeight": 40.6,
     "smallWeight": 3.9,
     "lifespan": 4,
-    "png": "./data/images/15.png"
+    "png": "./data/images/pig_15.png"
   },
   {
     "pNo": 16,
@@ -173,7 +173,7 @@
     "bigWeight": 35.8,
     "smallWeight": 7.1,
     "lifespan": 8,
-    "png": "./data/images/16.png"
+    "png": "./data/images/pig_16.png"
   },
   {
     "pNo": 17,
@@ -184,7 +184,7 @@
     "bigWeight": 44.8,
     "smallWeight": 12.2,
     "lifespan": 16,
-    "png": "./data/images/17.png"
+    "png": "./data/images/pig_17.png"
   },
   {
     "pNo": 18,
@@ -195,7 +195,7 @@
     "bigWeight": 52.3,
     "smallWeight": 8.5,
     "lifespan": 24,
-    "png": "./data/images/18.png"
+    "png": "./data/images/pig_18.png"
   },
   {
     "pNo": 19,
@@ -206,7 +206,7 @@
     "bigWeight": 42.9,
     "smallWeight": 10.2,
     "lifespan": 16,
-    "png": "./data/images/19.png"
+    "png": "./data/images/pig_19.png"
   },
   {
     "pNo": 20,
@@ -217,7 +217,7 @@
     "bigWeight": 31.6,
     "smallWeight": 6.6,
     "lifespan": 24,
-    "png": "./data/images/20.png"
+    "png": "./data/images/pig_20.png"
   },
   {
     "pNo": 21,
@@ -228,7 +228,7 @@
     "bigWeight": 69.1,
     "smallWeight": 12.4,
     "lifespan": 12,
-    "png": "./data/images/21.png"
+    "png": "./data/images/pig_21.png"
   },
   {
     "pNo": 22,
@@ -239,7 +239,7 @@
     "bigWeight": 49.1,
     "smallWeight": 3.9,
     "lifespan": 4,
-    "png": "./data/images/22.png"
+    "png": "./data/images/pig_22.png"
   },
   {
     "pNo": 23,
@@ -250,7 +250,7 @@
     "bigWeight": 44.8,
     "smallWeight": 9.7,
     "lifespan": 16,
-    "png": "./data/images/23.png"
+    "png": "./data/images/pig_23.png"
   },
   {
     "pNo": 24,
@@ -261,7 +261,7 @@
     "bigWeight": 43.6,
     "smallWeight": 5.7,
     "lifespan": 8,
-    "png": "./data/images/24.png"
+    "png": "./data/images/pig_24.png"
   },
   {
     "pNo": 25,
@@ -272,7 +272,7 @@
     "bigWeight": 43.6,
     "smallWeight": 5.7,
     "lifespan": 8,
-    "png": "./data/images/25.png"
+    "png": "./data/images/pig_25.png"
   },
   {
     "pNo": 26,
@@ -283,7 +283,7 @@
     "bigWeight": 40.6,
     "smallWeight": 3.9,
     "lifespan": 4,
-    "png": "./data/images/26.png"
+    "png": "./data/images/pig_26.png"
   },
   {
     "pNo": 27,
@@ -294,7 +294,7 @@
     "bigWeight": 40.6,
     "smallWeight": 3.9,
     "lifespan": 4,
-    "png": "./data/images/27.png"
+    "png": "./data/images/pig_27.png"
   },
   {
     "pNo": 28,
@@ -305,7 +305,7 @@
     "bigWeight": 60.7,
     "smallWeight": 4.8,
     "lifespan": 8,
-    "png": "./data/images/28.png"
+    "png": "./data/images/pig_28.png"
   },
   {
     "pNo": 29,
@@ -316,7 +316,7 @@
     "bigWeight": 72.5,
     "smallWeight": 7.9,
     "lifespan": 16,
-    "png": "./data/images/29.png"
+    "png": "./data/images/pig_29.png"
   },
   {
     "pNo": 30,
@@ -327,7 +327,7 @@
     "bigWeight": 83.1,
     "smallWeight": 17,
     "lifespan": 40,
-    "png": "./data/images/30.png"
+    "png": "./data/images/pig_30.png"
   },
   {
     "pNo": 31,
@@ -338,7 +338,7 @@
     "bigWeight": 45.6,
     "smallWeight": 12.7,
     "lifespan": 12,
-    "png": "./data/images/31.png"
+    "png": "./data/images/pig_31.png"
   },
   {
     "pNo": 32,
@@ -349,6 +349,6 @@
     "bigWeight": 51.9,
     "smallWeight": 3.9,
     "lifespan": 8,
-    "png": "./data/images/32.png"
+    "png": "./data/images/pig_32.png"
   }
 ]

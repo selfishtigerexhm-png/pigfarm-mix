@@ -27,7 +27,7 @@
     th, td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; vertical-align: middle; }
     th { background-color: #f8fafc; font-weight: 600; }
     tr:nth-child(even) { background-color: #f8fafc; }
-    .pig-img { width: 50px; height: 50px; object-fit: contain; }
+    .pig-img { width: 50px; height: 50px; object-fit: contain; display: block; }
     .star { color: #f59e0b; }
   </style>
 </head>
@@ -68,7 +68,7 @@
   <script>
     let rawData = [];
 
-    // 內建備用 SVG 豬豬圖示（當圖片檔找不到時自動顯示）
+    // 內建備用粉紅小豬 SVG 圖示（防止圖片丟失時出現瀏覽器預設破圖文字）
     const fallbackPigSvg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23ffc0cb'/><circle cx='35' cy='40' r='5' fill='%23333'/><circle cx='65' cy='40' r='5' fill='%23333'/><ellipse cx='50' cy='60' rx='15' ry='10' fill='%23ff8da1'/><circle cx='45' cy='60' r='3' fill='%23fff'/><circle cx='55' cy='60' r='3' fill='%23fff'/></svg>";
 
     // 載入本地 JSON 資料
@@ -86,36 +86,31 @@
         document.getElementById('pigTableBody').innerHTML = '<tr><td colspan="7" style="text-align:center; color:red;">無法載入豬隻資料檔案 (data/pigs.json)</td></tr>';
       });
 
-    // 自動修正圖片路徑的輔助函式
-    function getCorrectImgSrc(path) {
-      if (!path) return fallbackPigSvg;
-      if (path.startsWith('http://') || path.startsWith('https://')) return path;
-      
-      // 清理多餘的 `./` 或 `/` 前綴
-      let cleanPath = path.replace(/^\.\//, '').replace(/^\//, '');
-      
-      // 確保路徑以 data/ 開頭
-      if (!cleanPath.startsWith('data/')) {
-        cleanPath = 'data/' + cleanPath;
-      }
-      return './' + cleanPath;
-    }
-
     // 渲染表格內容
     function renderTable(data) {
       const tbody = document.getElementById('pigTableBody');
-      if (data.length === 0) {
+      if (!data || data.length === 0) {
         tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;">無符合條件的資料</td></tr>';
         return;
       }
-      
+
       tbody.innerHTML = data.map(item => {
-        const imgSrc = getCorrectImgSrc(item.png || item.image);
+        // 抓取豬隻編號
+        const pNo = item.pNo || item.id || 0;
+        
+        // 確保圖片一定會抓取相對路徑 ./data/images/{編號}.png
+        const imgSrc = `./data/images/${pNo}.png`;
+
         return `
           <tr>
-            <td><img src="${imgSrc}" class="pig-img" alt="${item.name}" onerror="this.onerror=null;this.src='${fallbackPigSvg}';"></td>
-            <td><strong>#${item.pNo}</strong></td>
-            <td>${item.name}</td>
+            <td>
+              <img src="${imgSrc}" 
+                   class="pig-img" 
+                   alt="${item.name || ''}" 
+                   onerror="this.onerror=null; this.src='${fallbackPigSvg}';">
+            </td>
+            <td><strong>#${pNo}</strong></td>
+            <td>${item.name || '未知豬隻'}</td>
             <td><span class="star">${'⭐'.repeat(item.rare || 1)}</span></td>
             <td>$${(item.price || 0).toLocaleString()}</td>
             <td>${item.lifespan || 0} 小時</td>
@@ -131,9 +126,11 @@
       const rare = document.getElementById('rareFilter').value;
 
       const filtered = rawData.filter(item => {
-        const matchesSearch = item.name.toLowerCase().includes(query) || 
-                              String(item.pNo).includes(query);
-        const matchesRare = !rare || item.rare === Number(rare);
+        const pNoStr = String(item.pNo || item.id || '');
+        const nameStr = (item.name || '').toLowerCase();
+        
+        const matchesSearch = nameStr.includes(query) || pNoStr.includes(query);
+        const matchesRare = !rare || (item.rare === Number(rare));
         return matchesSearch && matchesRare;
       });
 

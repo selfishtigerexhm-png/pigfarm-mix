@@ -1,14 +1,15 @@
 [
+ [
   {
     "pNo": 1,
     "name": "雜種豬(肉色)",
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 40,
-    "smallWeight": 3.9,
+    "smallWeight": 123.9,
+    "bigWeight": 160.0,
     "lifespan": 3,
-    "png": "./data/images/pig_1.png"
+    "png": "./data/images/1.png"
   },
   {
     "pNo": 2,
@@ -16,10 +17,10 @@
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 40,
-    "smallWeight": 3.9,
+    "smallWeight": 123.9,
+    "bigWeight": 160.0,
     "lifespan": 3,
-    "png": "./data/images/pig_2.png"
+    "png": "./data/images/2.png"
   },
   {
     "pNo": 3,
@@ -27,10 +28,10 @@
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 40,
-    "smallWeight": 3.9,
+    "smallWeight": 123.9,
+    "bigWeight": 160.0,
     "lifespan": 3,
-    "png": "./data/images/pig_3.png"
+    "png": "./data/images/3.png"
   },
   {
     "pNo": 4,
@@ -38,10 +39,10 @@
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 40,
-    "smallWeight": 3.9,
+    "smallWeight": 123.9,
+    "bigWeight": 160.0,
     "lifespan": 3,
-    "png": "./data/images/pig_4.png"
+    "png": "./data/images/4.png"
   },
   {
     "pNo": 5,
@@ -49,10 +50,10 @@
     "rare": 1,
     "price": 500,
     "rent": 300,
-    "bigWeight": 40,
-    "smallWeight": 3.9,
+    "smallWeight": 123.9,
+    "bigWeight": 160.0,
     "lifespan": 3,
-    "png": "./data/images/pig_5.png"
+    "png": "./data/images/5.png"
   },
   {
     "pNo": 6,
@@ -60,11 +61,12 @@
     "rare": 1,
     "price": 1000,
     "rent": 800,
-    "bigWeight": 33.2,
-    "smallWeight": 4.4,
+    "smallWeight": 124.4,
+    "bigWeight": 153.2,
     "lifespan": 3,
-    "png": "./data/images/pig_6.png"
-  },
+    "png": "./data/images/6.png"
+  }
+],
   {
     "pNo": 7,
     "name": "伊比利亞豬/(橡子餵食)",

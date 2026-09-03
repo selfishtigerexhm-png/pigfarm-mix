@@ -6,17 +6,27 @@
 }
 
 body {
-    background-color: #f5f5f7;
+    background-color: #f7f7f7;
     color: #333;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 
-header {
-    background-color: #ff8c00;
+.top-bar {
+    background-color: #4caf50;
     color: white;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-clear {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .container {
@@ -25,80 +35,105 @@ header {
     padding: 0 15px;
 }
 
-.controls {
-    display: flex;
-    gap: 10px;
+/* 篩選表單樣式 (仿照截圖橫條設計) */
+.filter-form {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
     margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+.row-label {
+    width: 140px;
+    background-color: #f2f2f2;
+    padding: 12px 15px;
+    font-weight: bold;
+    color: #444;
+    border-right: 1px solid #eee;
+}
+
+.row-input {
+    padding: 10px 15px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-.controls input, .controls select {
-    padding: 10px 15px;
+.row-input input[type="text"], .row-input select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.btn-search {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #5cb85c;
+    color: white;
     font-size: 16px;
-    flex: 1;
-    min-width: 200px;
-}
-
-#status {
-    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;
     font-weight: bold;
-    color: #666;
 }
 
+.btn-search:hover {
+    background-color: #4cae4c;
+}
+
+.status-bar {
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 豬隻顯示網格 */
 .pig-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
 }
 
 .pig-card {
-    background: white;
-    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s;
-}
-
-.pig-card:hover {
-    transform: translateY(-5%;
-}
-
-.pig-img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.pig-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #d32f2f;
-    margin-bottom: 10px;
     text-align: center;
 }
 
-.pig-info {
-    width: 100%;
-    font-size: 14px;
+.pig-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.pig-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d9534f;
+    margin: 10px 0;
+}
+
+.pig-details {
+    font-size: 13px;
+    text-align: left;
+    color: #555;
     line-height: 1.6;
-    border-top: 1px solid #eee;
-    padding-top: 10px;
-}
-
-.pig-info div {
-    display: flex;
-    justify-content: space-between;
-}
-
-.badge {
-    background-color: #e0e0e0;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
 }

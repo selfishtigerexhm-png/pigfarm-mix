@@ -1,4 +1,98 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>養豬場 Mix 圖鑑搜尋資料庫</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body>
+    <header class="top-bar">
+        <h1>養豬場 Mix 豬隻圖鑑搜尋</h1>
+        <button id="resetBtn" class="btn-clear">🧹 清除篩選</button>
+    </header>
+
+    <main class="container">
+        <form id="filterForm" class="filter-form">
+            <div class="form-row">
+                <label class="row-label">#/名稱</label>
+                <div class="row-input">
+                    <input type="text" id="filterKeyword" placeholder="編號/名稱">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="row-label">進貨級數</label>
+                <div class="row-input checkboxes">
+                    <label><input type="checkbox" name="grade" value="A級"> A級</label>
+                    <label><input type="checkbox" name="grade" value="B級"> B級</label>
+                    <label><input type="checkbox" name="grade" value="C級"> C級</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="row-label">狩獵場地</label>
+                <div class="row-input">
+                    <input type="text" id="filterHunt" placeholder="搜尋 狩獵場地">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="row-label">★ 星級</label>
+                <div class="row-input">
+                    <select id="filterStars">
+                        <option value="">全部星級</option>
+                        <option value="1">★1</option>
+                        <option value="2">★2</option>
+                        <option value="3">★3</option>
+                        <option value="4">★4</option>
+                        <option value="5">★5</option>
+                        <option value="6">★6</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="row-label">放牧</label>
+                <div class="row-input radios">
+                    <label><input type="radio" name="grazing" value="all" checked> 全部</label>
+                    <label><input type="radio" name="grazing" value="yes"> 要放牧 (✔)</label>
+                    <label><input type="radio" name="grazing" value="no"> 不用放牧 (✖)</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="row-label">挑食</label>
+                <div class="row-input radios">
+                    <label><input type="radio" name="picky" value="all" checked> 全部</label>
+                    <label><input type="radio" name="picky" value="什麼都吃"> 什麼都吃</label>
+                    <label><input type="radio" name="picky" value="有點挑食"> 有點挑食</label>
+                    <label><input type="radio" name="picky" value="挑食"> 挑食</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="row-label">餵食提示</label>
+                <div class="row-input radios">
+                    <label><input type="radio" name="feedHint" value="all" checked> 全部</label>
+                    <label><input type="radio" name="feedHint" value="少量的飼料也能養大喔"> 少量的飼料也能養大喔</label>
+                    <label><input type="radio" name="feedHint" value="只要頻繁給就OK啦"> 只要頻繁給就OK啦</label>
+                    <label><input type="radio" name="feedHint" value="盡可能得多給些飼料"> 盡可能得多給些飼料</label>
+                    <label><input type="radio" name="feedHint" value="盡量頻繁地給很多飼料吧"> 盡量頻繁地給很多飼料吧</label>
+                </div>
+            </div>
+
+            <button type="button" id="searchBtn" class="btn-search">🔍 搜尋</button>
+        </form>
+
+        <div id="status" class="status-bar">搜尋中...</div>
+        <section id="pigGrid" class="pig-grid"></section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">

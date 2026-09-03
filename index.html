@@ -1,159 +1,95 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>養豬場 MIX - 圖鑑風格庫</title>
-  <style>
-    /* 復古羊皮紙圖鑑風格 */
-    body {
-      background-color: #f7eed6;
-      font-family: Arial, "PingFang TC", sans-serif;
-      margin: 0; padding: 15px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-
-    /* 頂部頁籤列 */
-    .nav-tabs {
-      display: flex; gap: 8px; margin-bottom: 15px; flex-wrap: wrap; justify-content: center;
-    }
-    .tab-btn {
-      background: #8b5a2b; color: white; border: none;
-      padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer;
-    }
-    .tab-btn.active {
-      background: #e65100; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    /* 圖鑑卡片網格 */
-    .gallery-container {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 15px; width: 100%; max-width: 800px;
-      background: #fff8e7; border: 3px solid #8b5a2b; border-radius: 12px; padding: 15px;
-    }
-
-    /* 圖鑑單一豬隻卡片 */
-    .pig-card {
-      background: #fff; border: 2px solid #d7ccc8; border-radius: 8px;
-      padding: 10px; text-align: center; cursor: pointer; transition: transform 0.2s;
-    }
-    .pig-card:hover { transform: scale(1.05); border-color: #8b5a2b; }
-    .pig-card img { width: 90px; height: 90px; object-fit: contain; }
-    .stars { color: #ffb300; font-size: 14px; margin: 4px 0; }
-    .pig-name { font-weight: bold; font-size: 14px; color: #3e2723; }
-
-    /* 詳細資訊彈窗 */
-    .modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); justify-content: center; align-items: center;
-    }
-    .modal-content {
-      background: #fff8e7; border: 3px solid #8b5a2b; padding: 20px;
-      border-radius: 12px; width: 80%; max-width: 400px; text-align: center; position: relative;
-    }
-    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer; }
-  </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>養豬場 Mix 圖鑑搜尋資料庫</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 </head>
 <body>
+    <header class="top-bar">
+        <h1>養豬場 Mix 豬隻圖鑑搜尋</h1>
+        <button id="resetBtn" class="btn-clear">🧹 清除篩選</button>
+    </header>
 
-  <h2>養豬場 MIX 圖鑑庫</h2>
+    <main class="container">
+        <form id="filterForm" class="filter-form">
+            <div class="form-row">
+                <label class="row-label">#/名稱</label>
+                <div class="row-input">
+                    <input type="text" id="filterKeyword" placeholder="編號/名稱">
+                </div>
+            </div>
 
-  <div class="nav-tabs" id="tabs">
-    <button class="tab-btn active" onclick="switchPage(1, this)">肉色</button>
-    <button class="tab-btn" onclick="switchPage(2, this)">灰色</button>
-        <button class="tab-btn" onclick="switchPage(5, this)">米色</button>
-    <button class="tab-btn" onclick="switchPage(3, this)">粉色</button>
-    <button class="tab-btn" onclick="switchPage(4, this)">白色</button>
-    <button class="tab-btn" onclick="switchPage(5, this)">野豬</button>
-    <button class="tab-btn" onclick="switchPage(5, this)">Even</button>
-  </div>
+            <div class="form-row">
+                <label class="row-label">進貨級數</label>
+                <div class="row-input checkboxes">
+                    <label><input type="checkbox" name="grade" value="A級"> A級</label>
+                    <label><input type="checkbox" name="grade" value="B級"> B級</label>
+                    <label><input type="checkbox" name="grade" value="C級"> C級</label>
+                </div>
+            </div>
 
-  <div class="gallery-container" id="gallery">載入圖鑑中...</div>
+            <div class="form-row">
+                <label class="row-label">狩獵場地</label>
+                <div class="row-input">
+                    <input type="text" id="filterHunt" placeholder="搜尋 狩獵場地">
+                </div>
+            </div>
 
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal()">&times;</span>
-      <h3 id="m-name">豬隻名稱</h3>
-      <img id="m-img" src="" style="width:120px; height:120px;">
-      <div id="m-stars" class="stars"></div>
-      <p id="m-info" style="text-align: left; font-size: 14px; line-height: 1.6;"></p>
-    </div>
-  </div>
+            <div class="form-row">
+                <label class="row-label">★ 星級</label>
+                <div class="row-input">
+                    <select id="filterStars">
+                        <option value="">全部星級</option>
+                        <option value="1">★1</option>
+                        <option value="2">★2</option>
+                        <option value="3">★3</option>
+                        <option value="4">★4</option>
+                        <option value="5">★5</option>
+                        <option value="6">★6</option>
+                    </select>
+                </div>
+            </div>
 
-  <script>
-    let allPigs = [];
+            <div class="form-row">
+                <label class="row-label">放牧</label>
+                <div class="row-input radios">
+                    <label><input type="radio" name="grazing" value="all" checked> 全部</label>
+                    <label><input type="radio" name="grazing" value="yes"> 要放牧 (✔)</label>
+                    <label><input type="radio" name="grazing" value="no"> 不用放牧 (✖)</label>
+                </div>
+            </div>
 
-    // 自動抓取並解析同目錄下的 pigfarmmix.CSV.csv
-    Papa.parse('pigfarmmix.CSV.csv', {
-      download: true,
-      header: false,
-      complete: function(results) {
-        allPigs = results.data.slice(1); // 忽略表頭
-        renderPage(1); // 預設顯示第 1 頁
-      }
-    });
+            <div class="form-row">
+                <label class="row-label">挑食</label>
+                <div class="row-input radios">
+                    <label><input type="radio" name="picky" value="all" checked> 全部</label>
+                    <label><input type="radio" name="picky" value="什麼都吃"> 什麼都吃</label>
+                    <label><input type="radio" name="picky" value="有點挑食"> 有點挑食</label>
+                    <label><input type="radio" name="picky" value="挑食"> 挑食</label>
+                </div>
+            </div>
 
-    // 切換分頁
-    function switchPage(pageNum, btn) {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderPage(pageNum);
-    }
+            <div class="form-row">
+                <label class="row-label">餵食提示</label>
+                <div class="row-input radios">
+                    <label><input type="radio" name="feedHint" value="all" checked> 全部</label>
+                    <label><input type="radio" name="feedHint" value="少量的飼料也能養大喔"> 少量的飼料也能養大喔</label>
+                    <label><input type="radio" name="feedHint" value="只要頻繁給就OK啦"> 只要頻繁給就OK啦</label>
+                    <label><input type="radio" name="feedHint" value="盡可能得多給些飼料"> 盡可能得多給些飼料</label>
+                    <label><input type="radio" name="feedHint" value="盡量頻繁地給很多飼料吧"> 盡量頻繁地給很多飼料吧</label>
+                </div>
+            </div>
 
-    // 渲染特定頁面的豬隻卡片
-    function renderPage(pageNum) {
-      const container = document.getElementById('gallery');
-      container.innerHTML = '';
+            <button type="button" id="searchBtn" class="btn-search">🔍 搜尋</button>
+        </form>
 
-      // 篩選屬於該圖鑑頁碼的豬隻 (比對 CSV 中的「圖鑑X 頁Y」文字)
-      const pagePigs = allPigs.filter(row => {
-        const bookInfo = row[11] || ''; // 第11欄包含圖鑑頁碼資訊
-        return bookInfo.includes(`頁${pageNum}#`) || bookInfo.includes(`頁 ${pageNum}#`);
-      });
+        <div id="status" class="status-bar">搜尋中...</div>
+        <section id="pigGrid" class="pig-grid"></section>
+    </main>
 
-      if (pagePigs.length === 0) {
-        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center;">此頁面暫無資料</p>';
-        return;
-      }
-
-      pagePigs.forEach(pig => {
-        const name = pig[1];
-        const imgSrc = pig[3]; // 成豬圖片 URL
-        const starsNum = parseInt(pig[6]) || 1;
-        const starStr = '★'.repeat(starsNum);
-
-        const card = document.createElement('div');
-        card.className = 'pig-card';
-        card.innerHTML = `
-          <img src="${imgSrc}" onerror="this.src='https://via.placeholder.com/90?text=No+Image'">
-          <div class="stars">${starStr}</div>
-          <div class="pig-name">${name}</div>
-        `;
-        card.onclick = () => showDetail(pig);
-        container.appendChild(card);
-      });
-    }
-
-    // 顯示詳細資料彈窗
-    function showDetail(pig) {
-      document.getElementById('m-name').innerText = pig[1];
-      document.getElementById('m-img').src = pig[3];
-      document.getElementById('m-stars').innerText = '★'.repeat(parseInt(pig[6]) || 1);
-      
-      document.getElementById('m-info').innerHTML = `
-        <b>挑食程度：</b>${pig[5] || '無'}<br>
-        <b>放牧需求：</b>${pig[7]} (${pig[8]})<br>
-        <b>養成時間：</b>${pig[9]}<br>
-        <b>顏色圖鑑：</b>${pig[11]}<br>
-        <b>賣出價格：</b>${pig[14]}
-      `;
-      document.getElementById('modal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-    }
-  </script>
+    <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,1 +1,104 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
 
+body {
+    background-color: #f5f5f7;
+    color: #333;
+    padding-bottom: 40px;
+}
+
+header {
+    background-color: #ff8c00;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.controls input, .controls select {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    flex: 1;
+    min-width: 200px;
+}
+
+#status {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #666;
+}
+
+.pig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.pig-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.pig-card:hover {
+    transform: translateY(-5%;
+}
+
+.pig-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.pig-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d32f2f;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pig-info {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.6;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.pig-info div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.badge {
+    background-color: #e0e0e0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
